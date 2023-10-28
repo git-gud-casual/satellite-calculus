@@ -59,11 +59,6 @@ class ListPicturesView(generics.GenericAPIView):
             pics.append({"id": pic.id,
                          "link": pic.link,
                          "created_at": pic.created_at,
-                        "expiration_date": pic.expiration_date,
-                            "lat_1": pic.lat_1,
-                            "lon_1": pic.lon_1,
-                            "lat_2": pic.lat_2,
-                            "lon_2": pic.lon_2
-                            })
+                         })
 
         return Response(data=pics, status=200)

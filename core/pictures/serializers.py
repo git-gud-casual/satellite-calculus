@@ -11,11 +11,6 @@ class SatPictureSerializer(serializers.Serializer):
     id = serializers.IntegerField()
     link = serializers.URLField()
     created_at = serializers.DateTimeField()
-    expiration_date = serializers.DateTimeField()
-    lat_1 = serializers.FloatField()
-    lon_1 = serializers.FloatField()
-    lat_2 = serializers.FloatField()
-    lon_2 = serializers.FloatField()
 
 
 class PictureByZoneRequestSerializer(serializers.Serializer):
