@@ -56,7 +56,6 @@ class ListPicturesView(generics.GenericAPIView):
 
         pics = []
         for pic in pics_pos.all():
-            print(pic.polygon)
             pics.append({"id": pic.id,
                          "link": pic.link,
                          "created_at": pic.created_at,
