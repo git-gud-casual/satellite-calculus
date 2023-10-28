@@ -37,6 +37,6 @@ class SatelliteModel(models.Model):
 class PositionModel(models.Model):
     lat = models.FloatField()
     lon = models.FloatField()
-    point = models.PointField(null=True, srid=4326)
+    # point = models.PointField(null=True, srid=4326)
     created_at = models.DateTimeField()
     satellite = models.ForeignKey(SatelliteModel, on_delete=models.CASCADE)

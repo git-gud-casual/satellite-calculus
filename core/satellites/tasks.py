@@ -178,6 +178,7 @@ def _update_positions(days=30):
 
     positions_dates = [timezone.now() + timedelta(seconds=delta_second)
                        for delta_second in range(seconds_in_month + 1)]
+    PositionModel.objects.all().delete()
     satellites = SatelliteModel.objects.filter(is_active=True).all()
 
     for satellite in satellites:
@@ -196,7 +197,7 @@ def _update_positions(days=30):
             ll_coords = predictor.get_position(date).position_llh[:2]
             position = PositionModel()
             position.lat, position.lon = ll_coords
-            position.point = Point(*ll_coords)
+            # position.point = Point(*ll_coords)
             position.created_at = date
             position.satellite = satellite
             positions.append(position)

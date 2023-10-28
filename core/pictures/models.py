@@ -15,10 +15,10 @@ class SatellitePictureModel(models.Model):
     expiration_date = models.DateTimeField(null=True)
 
     def save(self, *args, **kwargs):
-        if all((getattr(self, attr) for attr in ("lat_1", "lat_2", "lon_1", "lon_2"))):
-            """self.polygon = MultiPolygon("POLYGON (({} {}, {} {}, {} {}, {} {}, {} {}))".format((self.lat_1, self.lon_1, self.lat_2, self.lon_1,
-                                      (self.lat_2, self.lon_2), (self.lat_1, self.lon_2), (self.lat_1, self.lon_1))
-                                        ")"))"""
+        if all((getattr(self, attr) is not None for attr in ("lat_1", "lat_2", "lon_1", "lon_2"))):
+            self.polygon = MultiPolygon(WKTReader().read("POLYGON (({} {}, {} {}, {} {}, {} {}, {} {}))"
+                                        .format(self.lat_1, self.lon_1, self.lat_2, self.lon_1,
+                                                self.lat_2, self.lon_2, self.lat_1, self.lon_2, self.lat_1, self.lon_1)))
         super(SatellitePictureModel, self).save(*args, **kwargs)
 
     def __str__(self):
