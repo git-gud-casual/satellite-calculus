@@ -7,6 +7,7 @@
 /satellites/by_zone - Получение спутников, пролетающих над геозоной
 <br> 
 /geozones/deprecated - Получения запрещенных зон по WKT
+<br>
 /geozones/zones - Получения зон по WKT
 <br>
 /pictures - Получение снимков геозоны
