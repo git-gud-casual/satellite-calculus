@@ -197,7 +197,7 @@ def _update_positions(days=30):
             ll_coords = predictor.get_position(date).position_llh[:2]
             position = PositionModel()
             position.lat, position.lon = ll_coords
-            # position.point = Point(*ll_coords)
+            position.point = Point(*ll_coords)
             position.created_at = date
             position.satellite = satellite
             positions.append(position)
